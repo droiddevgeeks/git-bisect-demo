@@ -20,4 +20,9 @@ function isSameMajor(a, b) {
   return semver.major(a) === semver.major(b);
 }
 
-module.exports = { isUpgrade, isDowngrade, isSameMajor, compare };
+// true if `to` increments the major over `from`
+function isMajorBump(from, to) {
+  return semver.major(to) > semver.major(from);
+}
+
+module.exports = { isUpgrade, isDowngrade, isSameMajor, isMajorBump, compare };
