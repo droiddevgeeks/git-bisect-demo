@@ -1,6 +1,13 @@
 const semver = require('semver');
 
 /**
+ * -1 if a < b, 0 if equal, 1 if a > b.
+ */
+function compare(a, b) {
+  return semver.compare(a, b);
+}
+
+/**
  * Returns true if `to` is a newer version than `from`.
  */
 function isUpgrade(from, to) {
@@ -21,4 +28,4 @@ function isSameMajor(a, b) {
   return semver.major(a) === semver.major(b);
 }
 
-module.exports = { isUpgrade, isDowngrade, isSameMajor };
+module.exports = { isUpgrade, isDowngrade, isSameMajor, compare };
