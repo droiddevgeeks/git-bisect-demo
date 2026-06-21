@@ -14,4 +14,11 @@ function isDowngrade(from, to) {
   return semver.lt(to, from);
 }
 
-module.exports = { isUpgrade, isDowngrade };
+/**
+ * Returns true if both versions share the same major.
+ */
+function isSameMajor(a, b) {
+  return semver.major(a) === semver.major(b);
+}
+
+module.exports = { isUpgrade, isDowngrade, isSameMajor };
