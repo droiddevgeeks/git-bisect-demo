@@ -1,0 +1,13 @@
+{
+  "name": "version-check",
+  "version": "1.0.0",
+  "description": "Tiny helpers for comparing semantic versions",
+  "main": "src/upgrade.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "semver": "^7.6.0"
+  }
+}
