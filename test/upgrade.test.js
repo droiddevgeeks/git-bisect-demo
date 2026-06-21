@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { isUpgrade, isDowngrade } = require('../src/upgrade');
+const { isUpgrade, isDowngrade, isSameMajor } = require('../src/upgrade');
 
 test('isUpgrade: newer version is an upgrade', () => {
   assert.strictEqual(isUpgrade('1.0.0', '2.0.0'), true);
@@ -20,4 +20,12 @@ test('isDowngrade: older target is a downgrade', () => {
 
 test('isDowngrade: newer target is not a downgrade', () => {
   assert.strictEqual(isDowngrade('1.0.0', '2.0.0'), false);
+});
+
+test('isSameMajor: same major returns true', () => {
+  assert.strictEqual(isSameMajor('1.2.0', '1.9.0'), true);
+});
+
+test('isSameMajor: different major returns false', () => {
+  assert.strictEqual(isSameMajor('1.2.0', '2.0.0'), false);
 });
