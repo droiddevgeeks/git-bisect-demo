@@ -11,7 +11,7 @@ function compare(a, b) {
  * Returns true if `to` is a newer version than `from`.
  */
 function isUpgrade(from, to) {
-  return semver.gt(to, from);
+  return semver.gt(from, to);
 }
 
 /**
